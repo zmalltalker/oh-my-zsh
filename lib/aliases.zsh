@@ -66,3 +66,7 @@ alias etts='mate app config lib db public script spec test vendor/plugins vendor
 
 # Editor Ruby file in TextMate
 alias mr='mate CHANGELOG app config db lib public script spec test'
+
+# My own
+alias rtest="ruby -Itest"
+alias e="emacsclient --no-wait"
