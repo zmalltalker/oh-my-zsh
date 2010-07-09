@@ -1,8 +1,16 @@
+function _last_modified_at(){
+    if [ `uname -s` = "Linux" ]; then
+        stat -c%y $1
+    else
+        stat -f%m $1
+    fi
+}
+
 _rake_does_task_list_need_generating () {
   if [ ! -f .rake_tasks~ ]; then return 0;
   else
-    accurate=$(stat -f%m .rake_tasks~)
-    changed=$(stat -f%m Rakefile)
+    accurate=$(_last_modified_at .rake_tasks~)
+    changed=$(_last_modified_at Rakefile)
     return $(expr $accurate '>=' $changed)
   fi
 }
@@ -22,8 +30,8 @@ compctl -K _rake rake
 function _cap_does_task_list_need_generating () {
   if [ ! -f .cap_tasks~ ]; then return 0;
   else
-    accurate=$(stat -f%m .cap_tasks~)
-    changed=$(stat -f%m config/deploy.rb)
+    accurate=$(_last_modified_at .cap_tasks~)
+    changed=$(_last_modified_at config/deploy.rb)
     return $(expr $accurate '>=' $changed)
   fi
 }
