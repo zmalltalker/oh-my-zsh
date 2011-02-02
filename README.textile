@@ -33,7 +33,7 @@ You _might_ need to modify your PATH in ~/.zshrc if you're not able to find some
 
 h2. Usage
 
-TODO: Update this...
+TODO: Update this..
 
 * Rake autocomplete: @rake (tab)@. Will generate a cache of all your rake tasks and then let you auto-complete and/or select the task to run.
 * ssh autocomplete: @ssh (tab)@ or @scp (tab)@
